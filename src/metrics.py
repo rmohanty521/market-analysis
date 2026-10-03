@@ -58,6 +58,7 @@ def inverse_vol_weights(r, window:int=20):
     return weights
 
 def backtest_weights(weights, r, cost=0.0005):
+    weights = weights.dropna()
     r = r.loc[weights.index]
     gross = (r*weights).sum(axis=1)
     turnover = weights.diff().abs().sum(axis=1).fillna(0)
