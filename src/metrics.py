@@ -46,3 +46,18 @@ def stats(r):
         "Sharpe": sharpe(r),
         "MaxDD": max_drawdown(eq),
     }
+
+
+def inverse_vol_weights(r, window:int=20):
+    '''returns weights in a 20 day window by default'''
+    vol = rolling_vol(r, window=window) 
+    inv_vol = 1/vol
+    weights = inv_vol.div(inv_vol.sum(axis=1), axis=0)
+    weights = weights.shift(1).dropna()
+
+    return weights
+
+def backtest_weights(weights, r, cost=0.005):
+    pass
+
+
