@@ -49,7 +49,7 @@ def stats(r):
 
 
 def inverse_vol_weights(r, window:int=20):
-    '''returns weights in a 20 day window by default'''
+    '''returns weight shifted one day and the window is a param which is defaulted at 20'''
     vol = rolling_vol(r, window=window) 
     inv_vol = 1/vol
     weights = inv_vol.div(inv_vol.sum(axis=1), axis=0)
@@ -58,6 +58,7 @@ def inverse_vol_weights(r, window:int=20):
     return weights
 
 def backtest_weights(weights, r, cost=0.0005):
+    r = r.loc[weights.index]
     gross = (r*weights).sum(axis=1)
     turnover = weights.diff().abs().sum(axis=1).fillna(0)
 
