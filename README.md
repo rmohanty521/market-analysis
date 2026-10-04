@@ -58,12 +58,10 @@ In this project I analyzed a 200 and 50 day moving average. This is a graph show
 
 ![MA return graph](images/p3_returns_50-200.png)
 | | Total ret | Ann. ret | Ann. Vol | Sharpe | MaxDD |
-|:----------------------|------------:|-----------:|-----------:|---------:|--------:|
-| equal weight | 38.267 | 0.265 | 0.202 | 1.263 | -0.361 |
-| inverse vol | 10.006 | 0.166 | 0.128 | 1.266 | -0.234 |
-| inv vol (net) | 9.251 | 0.161 | 0.128 | 1.23 | -0.236 |
-| inv vol monthly | 10.023 | 0.167 | 0.129 | 1.262 | -0.271 |
-| inv vol monthly (net) | 9.861 | 0.166 | 0.129 | 1.255 | -0.272 |
+|:-----------------|------------:|-----------:|-----------:|---------:|----------:|
+| Buy & hold | 8.02808 | 0.14106 | 0.170587 | 0.859247 | -0.337173 |
+| Strategy (gross) | 3.41105 | 0.0930854 | 0.13949 | 0.708182 | -0.337173 |
+| Strategy (net) | 3.37802 | 0.0925929 | 0.139498 | 0.704919 | -0.337173 |
 
 Here we have a graph of the returns from trading using the strategy versus just holding and a table with some statistics. The cost of 0.05% per trade is negligible so I will just compare the gross and buy & hold rows.
 
@@ -84,14 +82,14 @@ Then we calucated the sum of the inverse vol for those stocks in rows and divide
 
 Avg daily turnover: 0.0361
 Annual turnover: 9.1x
-Monthly annual turnover: 1.8x
-| | Total ret | Ann. ret | Ann. Vol | Sharpe | MaxDD |
-|:----------------------|------------:|-----------:|-----------:|---------:|----------:|
-| equal weight | 38.778 | 0.266405 | 0.20243 | 1.2685 | -0.361281 |
-| inverse vol | 10.2203 | 0.167692 | 0.127793 | 1.27747 | -0.233871 |
-| inv vol (net) | 9.45142 | 0.16239 | 0.127802 | 1.24175 | -0.236483 |
-| inv vol monthly | 9.39271 | 0.16197 | 0.131863 | 1.20482 | -0.281648 |
-| inv vol monthly (net) | 9.24512 | 0.160905 | 0.131864 | 1.19785 | -0.281648 |
+Monthly annual turnover: 1.9x
+|                       |   Total ret |   Ann. ret |   Ann. Vol |   Sharpe |   MaxDD |
+|:----------------------|------------:|-----------:|-----------:|---------:|--------:|
+| equal weight          |      38.267 |      0.265 |      0.202 |    1.263 |  -0.361 |
+| inverse vol           |      10.006 |      0.166 |      0.128 |    1.266 |  -0.234 |
+| inv vol (net)         |       9.251 |      0.161 |      0.128 |    1.23  |  -0.236 |
+| inv vol monthly       |      10.023 |      0.167 |      0.129 |    1.262 |  -0.271 |
+| inv vol monthly (net) |       9.861 |      0.166 |      0.129 |    1.255 |  -0.272 |
 
 From this chart, just looking at the values unadjusted for cost, we can see that the equal weight method had a higher return 38.8x versus 10.2x. It also had a higher annualized return, 26.6% vs 16.8%. The sharpe values were roughly the same meaning diversifying according the inv vol didn't improve the return to risk ratio. A notable difference was that the max drawdown dropped down to -0.23 for inv vol versus -0.36 for equal weight. This means that the worse loss was reduced significantly. Also the annual volatility for the inv vol was much lower 0.12 versus 0.20.
 
